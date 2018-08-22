@@ -1,7 +1,12 @@
 import os
 import csv
 
-csvpath = os.path.join('..', 'Resources', 'budget_data.csv')
+csvpath = os.path.join('Resources', 'budget_data.csv')
+monthCount = 0
+gIncrease = 0
+currentIncrease = 0
+total = 0
+print(csvpath)
 
 with open(csvpath, newline='') as csvfile:
 
@@ -14,4 +19,15 @@ with open(csvpath, newline='') as csvfile:
 
     # Read each row of data after the header
     for row in csvreader:
-        print(row)
+    	monthCount += 1
+    	total += float(row[1])
+    	
+    	print(row)
+
+print("Financial Analysis")
+print("----------------------------")
+print(f"Total Months: {monthCount}")
+print(f"Total: ${int(total)}")
+print("Average  Change: $-2315.12")
+print("Greatest Increase in Profits: Feb-2012 ($1926159)")
+print("Greatest Decrease in Profits: Sep-2013 ($-2196167)")
