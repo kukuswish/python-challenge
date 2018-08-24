@@ -5,10 +5,6 @@ import operator
 csvpath = os.path.join('Resources', 'election_data.csv')
 
 totalvotes=0
-khan=0
-correy= 0
-li=0
-otool=0
 votes={}
 
 with open(csvpath, newline='') as csvfile:
