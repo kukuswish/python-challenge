@@ -18,7 +18,7 @@ with open(csvpath, newline='') as csvfile:
 
     # Read the header row first (skip this step if there is now header)
     csv_header = next(csvreader)
-    print(csv_header)
+    # print(csv_header)
 
     # Read each row of data after the header
     for row in csvreader:
@@ -29,10 +29,7 @@ with open(csvpath, newline='') as csvfile:
         else:
             votes[key] = 1
 
-
-print(votes)
 winner = max(votes.items(), key=operator.itemgetter(1))[0]
-print(winner)
 
 print("Election Results")
 print("-------------------------")
