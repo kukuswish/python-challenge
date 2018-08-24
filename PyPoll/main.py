@@ -4,7 +4,10 @@ import csv
 csvpath = os.path.join('Resources', 'election_data.csv')
 
 totalvotes=0
-
+khan=0
+correy= 0
+li=0
+otool=0
 
 with open(csvpath, newline='') as csvfile:
 
@@ -18,16 +21,24 @@ with open(csvpath, newline='') as csvfile:
     # Read each row of data after the header
     for row in csvreader:
         totalvotes+=1
-
+        
+        if(row[2].upper()=="KHAN"):
+            khan+=1
+        elif(row[2].upper()=="CORREY"):
+            correy+=1
+        elif(row[2].upper()=="LI"):
+            li+=1
+        elif(row[2].upper()=="O'TOOLEY"):
+            otool+=1
 
 print("Election Results")
 print("-------------------------")
 print(f"Total Votes: {totalvotes}")
 print("-------------------------")
-print("Khan: 63.000% (2218231)")
-print("Correy: 20.000% (704200)")
-print("Li: 14.000% (492940)")
-print("O'Tooley: 3.000% (105630)")
+print(f"Khan: 63.000% ({khan})")
+print(f"Correy: 20.000% ({correy})")
+print(f"Li: 14.000% ({li})")
+print(f"O'Tooley: 3.000% ({otool})")
 print("-------------------------")
 print("Winner: Khan")
 print("-------------------------")
