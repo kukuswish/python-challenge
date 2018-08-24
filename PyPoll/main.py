@@ -1,5 +1,6 @@
 import os
 import csv
+import operator
 
 csvpath = os.path.join('Resources', 'election_data.csv')
 
@@ -31,6 +32,9 @@ with open(csvpath, newline='') as csvfile:
         elif(row[2].upper()=="O'TOOLEY"):
             otool+=1
 
+stats = {'Khan':khan, 'Correy': correy, 'Li': li, "O'Tooley": otool}
+winner = max(stats.items(), key=operator.itemgetter(1))[0]
+
 print("Election Results")
 print("-------------------------")
 print(f"Total Votes: {totalvotes}")
@@ -40,5 +44,5 @@ print(f"Correy: {round(float((correy/totalvotes)*100),3)}% ({correy})")
 print(f"Li: {round(float((li/totalvotes)*100),3)}% ({li})")
 print(f"O'Tooley: {round(float((otool/totalvotes)*100),3)}% ({otool})")
 print("-------------------------")
-print("Winner: Khan")
+print(f"Winner: {winner}")
 print("-------------------------")
