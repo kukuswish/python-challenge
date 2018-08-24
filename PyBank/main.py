@@ -48,6 +48,9 @@ with open(csvpath, newline='') as csvfile:
         if(change >= 0 and change > gIncrease):
             gIncrease= change
             gMonth = row[0]
+        elif(change<0 and change < gDec):
+            gDec = change
+            iMonth = row[0]
         
     averIncrease=currentIncrease/(monthCount - 1)
     # print(1170593 - -755566)
@@ -56,5 +59,5 @@ print("----------------------------")
 print(f"Total Months: {monthCount}")
 print(f"Total: ${int(total)}")
 print(f"Average  Change: $-2315.12 {averIncrease}")
-print(f"Greatest Increase in Profits: {gMonth} ({int(gIncrease)}) ")
-print("Greatest Decrease in Profits: Sep-2013 ($-2196167)")
+print(f"Greatest Increase in Profits: {gMonth} ({int(gIncrease)})")
+print(f"Greatest Decrease in Profits: {iMonth} ({int(gDec)})")
